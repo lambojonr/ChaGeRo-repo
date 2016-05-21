@@ -9,7 +9,7 @@ def index():
 	random_images = sample(list(images), 2)
 	return render_template('index.html',left=random_images[0],right=random_images[1])
 
-
 @app.route('/leading', methods=['GET'])
 def leading():
-    return render_template('leading.html')
+    images = Image.query.all()
+    return render_template('leading.html', battlers=images)
